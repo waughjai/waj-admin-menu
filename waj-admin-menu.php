@@ -12,13 +12,13 @@
 	Text Domain:  waj-admin-menu
 	*/
 
-	require_once( 'vendor/autoload.php' );
-
-	use WaughJ\WPAdminMenuFactory\WPAdminMenuFactory;
-	use WaughJ\WPAdminMenu\WPAdminMenu;
-
 	namespace WaughJ\WAJAdminMenu
 	{
+		require_once( 'vendor/autoload.php' );
+
+		use WaughJ\WPAdminMenuFactory\WPAdminMenuFactory;
+		use WaughJ\WPAdminMenu\WPAdminMenu;
+
 		add_shortcode
 		(
 			'header-nav',
