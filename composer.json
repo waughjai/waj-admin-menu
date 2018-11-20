@@ -1,5 +1,5 @@
 {
-    "name": "waughj/wp-admin-menu-factory",
+    "name": "waughj/waj-admin-menu",
     "description": "Factory for making default admin menus.",
     "keywords": [ "wordpress", "admin", "menu", "links", "template", "factory", "defaults" ],
     "license": "GPL-2.0-or-later",
@@ -13,14 +13,6 @@
     "require": {
 		"php": ">=7.0",
 		"waughj/wp-admin-menu": ">=0.3.1",
-		"waughj/wp-admin-menu-factory": ">=0.1.0"
-    },
-    "require-dev": {
-		"phpunit/phpunit": "6.*"
-    },
-    "autoload": {
-        "psr-4": {
-            "WaughJ\\WPAdminMenuFactory\\": "src/"
-        }
+		"waughj/wp-admin-menu-factory": ">=0.1.1"
     }
 }
