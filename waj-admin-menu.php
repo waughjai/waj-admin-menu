@@ -18,7 +18,7 @@
 
 		use WaughJ\WPAdminMenuFactory\WPAdminMenuFactory;
 		use WaughJ\WPAdminMenu\WPAdminMenu;
-		use function WaughJ\WAJAdminMenu\TestHashItemString;
+		use function WaughJ\TestHashItem\TestHashItemString;
 
 		add_shortcode
 		(
