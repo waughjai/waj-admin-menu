@@ -25,7 +25,7 @@
 			'header-nav',
 			function( $atts )
 			{
-				return WPAdminMenuFactory::getHeader()->getMenuContent();
+				return WPAdminMenuFactory::createHeader()->getMenuContent();
 			}
 		);
 
@@ -34,7 +34,7 @@
 			'footer-nav',
 			function( $atts )
 			{
-				return WPAdminMenuFactory::getFooter()->getMenuContent();
+				return WPAdminMenuFactory::createFooter()->getMenuContent();
 			}
 		);
 
@@ -72,6 +72,7 @@
 		{
 			if ( isset( $atts[ $attribute ] ) )
 			{
+				// Make sure there is a list here so you can add items to it.
 				if ( !isset( $other_args[ $element ] ) )
 				{
 					$other_args[ $element ] = [];
