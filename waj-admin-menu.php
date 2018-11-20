@@ -68,7 +68,7 @@
 			}
 		);
 
-		function test_add_arg( array &$other_args, array $list, string $attribute, string $element, string $key ) : void
+		function test_add_arg( array &$other_args, array $atts, string $attribute, string $element, string $key ) : void
 		{
 			if ( isset( $atts[ $attribute ] ) )
 			{
