@@ -16,7 +16,7 @@
 	{
 		require_once( 'vendor/autoload.php' );
 
-		use WaughJ\WPAdminMenuFactory\WPAdminMenuFactory;
+		use WaughJ\WPAdminMenuManager\WPAdminMenuManager;
 		use WaughJ\WPAdminMenu\WPAdminMenu;
 		use function WaughJ\TestHashItem\TestHashItemString;
 
@@ -25,7 +25,7 @@
 			'header-nav',
 			function( $atts )
 			{
-				return WPAdminMenuFactory::createHeader()->getMenuContent();
+				return WPAdminMenuManager::createHeader()->getMenuContent();
 			}
 		);
 
@@ -34,7 +34,7 @@
 			'footer-nav',
 			function( $atts )
 			{
-				return WPAdminMenuFactory::createFooter()->getMenuContent();
+				return WPAdminMenuManager::createFooter()->getMenuContent();
 			}
 		);
 

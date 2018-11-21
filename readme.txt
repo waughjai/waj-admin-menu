@@ -8,50 +8,105 @@ Requires PHP: 7.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Simple class for handling auto-updating copyright year in website footers.
+Simple class & shortcodes for easily generating HTML for admin menus set up in WordPress.
 
 
 == Description ==
 
-Adds copyright year or interval o' years where desired. By default, it just shows the current year, as specified by the server ( which is hopefully keeping accurate track o' time ). Optionally, you can include a start year. If the start year is different from the current year, then it will show an interval 'tween the start year & current year.
+Generates list HTML from menus set up in WordPress's admin through Appearance -> Menus.
 
-For instance, if you set the start year to 2015, in 2018 you will get the following:
-
-`2015 - 2018`
-
-You can also set a custom divider if you want the interval sign to look different. For instance, if you don't want the hyphen to have spaces round it, you could set the divider to "-", & you will get the following:
-
-`2015-2018`
+Allows custom-set classes & IDs for elements for easier styling.
 
 
 == Installation ==
 
 1. Upload the plugin files to the `/wp-content/plugins/plugin-name` directory, or install the plugin through the WordPress plugins screen directly.
 2. Activate the plugin through the 'Plugins' screen in WordPress
-3. Copyright year can be directly added to PHP files by creating an instance o' the \WaughJ\CopyrightYear\CopyrightYear class & using it like a string or calling the "getText()". Optional arguments to its constructor are 1st the starting year o' your website & 2nd the divider you want 'tween the start year & current year if they are different. The defaults for these, respectively, are the current year & a hyphen with spaces round it.
+3. Copyright year can be directly added to PHP files by creating an instance o' the \WaughJ\WPAdminMenu class & using it like a string or calling the "printMenu" method. In addition to the mandatory $slug & $title constructor parameters, which determine what menu in Appearances -> Menus to use, you can add an optional hash map as the 3rd argument, which should hold hash maps for elements with class or ID keys and strings for what those values should be.
 
-You can also add a copyright year to a WordPress document using a shortcode. Add [copyright-year] to add the current year & [copyright-year start="%year%" divider="%divider%"] with %year% replaced by the starting year & %divider% replaced by the divider that appears 'tween the start & current year if they are different.
+A simpler way to add an admin menu through PHP is to use the WPAdminMenuFactory class's static methods, "createHeader" or "createFooter" to automatically add menus with the slugs "header-nav" & "footer-nav" with the header nav automatically adding a "Skip to Content link for screen-reader users".
+
+You can also add an admin menu to WordPress content areas with the shortcode [admin-menu slug="menu-slug" title="menu-title"] with optional attributes for element classes and IDs.
+
+You can also use the simple shortcodes [header-nav] or [footer-nav] to automatically add the menus that the aforementioned WPAdminMenuFactory adds.
 
 
 == Example ==
 
 ````
-<?php
+// functions.php
 
 declare( strict_types = 1 );
-namespace MyTheme\FooterTemplate
+namespace MyTheme
 {
-	use \WaughJ\CopyrightYear\CopyrightYear;
+	use \WaughJ\WPAdminMenu\WPAdminMenu;
 
-	?>
-		<footer class="footer">
-			<p>Copyright Jaimeson Waugh &copy; <?= new CopyrightYear( 2015, '-' ); ?>.</p>
-		</footer>
-	<?php
+	// Make sure this is initialized early,
+	// so WordPress Admin knows that this menu is set up.
+	global $extra_menu;
+	$extra_menu = new WPAdminMenu
+	(
+		'extra-menu',
+		'Extra Menu',
+		[
+			'nav' =>
+			[
+				'class' => 'extra-menu-nav',
+				'id' => 'extra-menu-nav'
+			],
+			'ul' =>
+			[
+				'class' => 'extra-menu-list',
+				'id' => 'extra-menu-list'
+			],
+			'li' =>
+			[
+				'class' => 'extra-menu-item'
+			],
+			'a' =>
+			[
+				'class' => 'extra-menu-link'
+			],
+			'subnav' =>
+			[
+				'class' => 'extra-menu-subnav'
+			],
+			'subitem' =>
+			[
+				'class' => 'extra-menu-subitem'
+			],
+			'sublink' =>
+			[
+				'class' => 'extra-menu-sublink'
+			],
+			'parent-link' =>
+			[
+				'class' => 'extra-menu-parent-link'
+			],
+			'skip-to-content' => 'top'
+		]
+	);
 }
 ````
 
-This will print the message, "Copyright Jaimeson Waugh © 2015-2018."
+````
+// inc/header.php
+
+<?php
+
+declare( strict_types = 1 );
+namespace MyTheme
+{
+	?>
+		<header class="header">
+			<?
+				global $extra_menu;
+				$extra_menu->printMenu();
+			?>
+		</header>
+	<?php
+}
+````
 
 
 == Changelog ==

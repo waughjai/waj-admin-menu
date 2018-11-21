@@ -1,4 +1,4 @@
-WAJ Admin Menu
+WAJ Admin Menu WordPress Plugin
 =========================
 
-Simple plugin for automatically generating HTML content from menus created in WP admin.
+Simple class & shortcodes for easily generating HTML for admin menus set up in WordPress.
