@@ -25,7 +25,7 @@
 			'header-nav',
 			function( $atts )
 			{
-				return WPAdminMenuManager::createHeader()->getMenuContent();
+				return WPAdminMenuManager::getHeaderMenuContent();
 			}
 		);
 
@@ -34,7 +34,7 @@
 			'footer-nav',
 			function( $atts )
 			{
-				return WPAdminMenuManager::createFooter()->getMenuContent();
+				return WPAdminMenuManager::getFooterMenuContent();
 			}
 		);
 
@@ -44,8 +44,7 @@
 			function( $atts )
 			{
 				$slug = TestHashItemString( $atts, "slug", null );
-				$title = TestHashItemString( $atts, "title", TestHashItemString( $atts, "name", $slug ) );
-				if ( $slug && $title )
+				if ( $slug )
 				{
 					$other_args = [];
 					test_add_arg( $other_args, $atts, 'nav-class', 'nav', 'class' );
@@ -62,7 +61,7 @@
 					{
 						$other_args[ 'skip-to-content' ] = $atts[ 'skip-to-content' ];
 					}
-					return ( string )( new WPAdminMenu( $slug, $title, $other_args ) );
+					return WPAdminMenuManager::getAdminMenuContent( $slug, $other_args );
 				}
 				return '';
 			}
