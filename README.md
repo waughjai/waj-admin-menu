@@ -141,5 +141,8 @@ namespace MyTheme
 
 ## Changelog
 
+### 1.1
+* Add current item & current link classes as possible attributes.
+
 ### 1.0
 * Initial stable version.
