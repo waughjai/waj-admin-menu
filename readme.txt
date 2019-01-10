@@ -73,78 +73,75 @@ Shortcode attributes that act as these:
 
 == Example ==
 
-````
 // functions.php
 
-declare( strict_types = 1 );
-namespace MyTheme
-{
-	use WaughJ\WPAdminMenuManager\WPAdminMenumanager;
+	declare( strict_types = 1 );
+	namespace MyTheme
+	{
+		use WaughJ\WPAdminMenuManager\WPAdminMenumanager;
 
-	// Make sure this is initialized early,
-	// so WordPress Admin knows that this menu is set up.
-	WPAdminMenuManager::createAdminMenu
-	(
-		'extra-menu',
-		'Extra Menu',
-		[
-			'nav' =>
+		// Make sure this is initialized early,
+		// so WordPress Admin knows that this menu is set up.
+		WPAdminMenuManager::createAdminMenu
+		(
+			'extra-menu',
+			'Extra Menu',
 			[
-				'class' => 'extra-menu-nav',
-				'id' => 'extra-menu-nav'
-			],
-			'ul' =>
-			[
-				'class' => 'extra-menu-list',
-				'id' => 'extra-menu-list'
-			],
-			'li' =>
-			[
-				'class' => 'extra-menu-item'
-			],
-			'a' =>
-			[
-				'class' => 'extra-menu-link'
-			],
-			'subnav' =>
-			[
-				'class' => 'extra-menu-subnav'
-			],
-			'subitem' =>
-			[
-				'class' => 'extra-menu-subitem'
-			],
-			'sublink' =>
-			[
-				'class' => 'extra-menu-sublink'
-			],
-			'parent-link' =>
-			[
-				'class' => 'extra-menu-parent-link'
-			],
-			'skip-to-content' => 'top'
-		]
-	);
-}
-````
+				'nav' =>
+				[
+					'class' => 'extra-menu-nav',
+					'id' => 'extra-menu-nav'
+				],
+				'ul' =>
+				[
+					'class' => 'extra-menu-list',
+					'id' => 'extra-menu-list'
+				],
+				'li' =>
+				[
+					'class' => 'extra-menu-item'
+				],
+				'a' =>
+				[
+					'class' => 'extra-menu-link'
+				],
+				'subnav' =>
+				[
+					'class' => 'extra-menu-subnav'
+				],
+				'subitem' =>
+				[
+					'class' => 'extra-menu-subitem'
+				],
+				'sublink' =>
+				[
+					'class' => 'extra-menu-sublink'
+				],
+				'parent-link' =>
+				[
+					'class' => 'extra-menu-parent-link'
+				],
+				'skip-to-content' => 'top'
+			]
+		);
+	}
 
-````
-// inc/header.php
 
-<?php
+	// inc/header.php
 
-declare( strict_types = 1 );
-namespace MyTheme
-{
-	use WaughJ\WPAdminMenuManager\WPAdminMenumanager;
-
-	?>
-		<header class="header">
-			<?php WPAdminMenuManager::printAdminMenu( 'extra-menu' ); ?>
-		</header>
 	<?php
-}
-````
+
+	declare( strict_types = 1 );
+	namespace MyTheme
+	{
+		use WaughJ\WPAdminMenuManager\WPAdminMenumanager;
+
+		?>
+			<header class="header">
+				<?php WPAdminMenuManager::printAdminMenu( 'extra-menu' ); ?>
+			</header>
+		<?php
+	}
 
 
 == Changelog ==
