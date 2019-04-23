@@ -138,6 +138,9 @@ Shortcode attributes that act as these:
 
 ## Changelog
 
+### 1.2
+* Add ability to get menu objects & lists ( arrays ) from WPAdminMenuManager.
+
 ### 1.1
 * Add current item & current link classes as possible attributes.
 

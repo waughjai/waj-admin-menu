@@ -2,8 +2,8 @@
 Contributors: waughjai
 Tags: admin menu, nav, autogenerate, html
 Requires at least: 4.9.8
-Tested up to: 5.0.3
-Stable tag: 1.1.2
+Tested up to: 5.1.1
+Stable tag: 1.2.0
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -145,6 +145,9 @@ Shortcode attributes that act as these:
 
 
 == Changelog ==
+
+= 1.2 =
+* Add ability to get menu objects & lists ( arrays ) from WPAdminMenuManager.
 
 = 1.1 =
 * Add current item & current link classes as possible attributes.

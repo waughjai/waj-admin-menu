@@ -13,7 +13,7 @@
     "require": {
 		"php": ">=7.0",
 		"waughj/wp-post-list-converter": ">=0.1.2",
-		"waughj/wp-admin-menu": ">=0.5",
-		"waughj/wp-admin-menu-manager": "0.4"
+		"waughj/wp-admin-menu": ">=0.6",
+		"waughj/wp-admin-menu-manager": "0.5"
     }
 }
